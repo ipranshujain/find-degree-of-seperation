@@ -7,7 +7,7 @@ function App() {
 
   const [one, setOne] = useState("");
   const [two, setTwo] = useState("");
-  const [foundSeperations, setFoundSeperations] = useState<string[]>([]);
+  const [foundseparations, setFoundseparations] = useState<string[]>([]);
   const [relations, setRelations] = useState([
     ["Sameer", "Aayushi"],
     ["Aayushi", "Bhaskar"],
@@ -36,7 +36,7 @@ function App() {
     setRelations(newRelation);
     localStorage.setItem("relationsInfo", JSON.stringify(newRelation));
   }
-  const findDegreeOfSeperation = () => {
+  const findDegreeOfseparation = () => {
     // create adjacency list
     let adj_list: {
       [key: string]: Set<string>;
@@ -86,13 +86,13 @@ function App() {
         }
     }
     console.log("sdfd", result);
-    setFoundSeperations(result);
+    setFoundseparations(result);
   };
 
 
   return (
     <div className="m-10 flex flex-col items-center">
-      <div className="text-3xl text-center m-5 font-bold">Find Degree of <span className="italic">Seperations</span></div>
+      <div className="text-3xl text-center m-5 font-bold">Find Degree of <span className="italic">separations</span></div>
       <div className="m-2 flex flex-col gap-2">
         <input
           placeholder="Enter First Name"
@@ -110,18 +110,18 @@ function App() {
         />
         <button
           className="text-lg bg-teal-300 text-gray-700 border border-black rounded px-2 w-[400px] hover:bg-teal-200"
-          onClick={findDegreeOfSeperation}
+          onClick={findDegreeOfseparation}
         >
           Find Degree of Sep.
         </button>
         <div className="text-teal-400 text-xl font-bold">
-          Found Degree of Seperations are:{" "}
+          Found Degree of separations are:{" "}
         </div>
-        {foundSeperations.length === 0 && (
-          <div className="text-lg text-center">No Seperations Found</div>
+        {foundseparations.length === 0 && (
+          <div className="text-lg text-center">No separations Found</div>
         )}
         <div className="text-lg flex flex-col gap-3">
-          {foundSeperations.map((sep, idx) => {
+          {foundseparations.map((sep, idx) => {
             return (
               <div key={idx} className="text-lg text-center">
                 {sep}
